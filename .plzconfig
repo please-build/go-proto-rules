@@ -1,0 +1,7 @@
+[Go]
+ImportPath = github.com/please-build/go-proto-rules
+GoTool = //third_party/go:toolchain|go
+
+[Plugin "proto"]
+ProtocTool = //third_party/proto:protoc
+Definition = //build_defs:go
