@@ -1,9 +1,4 @@
-system_library(
+plugin_repo(
     name = "proto",
-    srcs = ["/Users/jpoole/proto-rules"],
-)
-
-subrepo(
-    name = "proto",
-    dep = ":proto",
+    revision = "v0.1.1",
 )
