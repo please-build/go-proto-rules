@@ -7,5 +7,5 @@ import (
 )
 
 func TestServiceImportable(t *testing.T) {
-	proto.
+	_ = proto.HelloRequest{}
 }
