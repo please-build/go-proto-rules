@@ -1,0 +1,30 @@
+[Go]
+ImportPath = github.com/please-build/go-proto-rules
+GoTool = //third_party/go:toolchain|go
+
+[Plugin "proto"]
+ProtocTool = //third_party/proto:protoc
+LanguageDef = //build_defs:go
+
+[Plugin "go_proto"]
+GrpcPlugin = //third_party/go:protoc-gen-go-grpc
+ProtoPlugin = //third_party/go:protoc-gen-go
+
+[PluginDefinition]
+Name = go_proto
+
+[PluginConfig "plugin"]
+ConfigKey = ProtoPlugin
+DefaultValue = grpc_go_plugin
+
+[PluginConfig "grpc_plugin"]
+ConfigKey = GrpcPlugin
+DefaultValue = grpc_go_plugin
+
+[PluginConfig "proto_dep"]
+ConfigKey = ProtoDep
+DefaultValue = //third_party/go:protobuf
+
+[PluginConfig "grpc_dep"]
+ConfigKey = GrpcDep
+DefaultValue = //third_party/go:grpc
