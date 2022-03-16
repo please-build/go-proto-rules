@@ -210,7 +210,7 @@ go_module(
 
 go_module(
     name = "sys",
-    install = ["unix"],
+    install = ["..."],
     module = "golang.org/x/sys",
     version = "v0.0.0-20220315194320-039c03cc5b86",
     visibility = ["PUBLIC"],
