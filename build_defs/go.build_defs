@@ -1,4 +1,4 @@
-subinclude("///proto//build_defs/sdk")
+subinclude("///proto//build_defs/sdk", "///go//build_defs:go")
 
 # TODO(jpoole): Figure out how to apply the mapping stuff to the grpc plugin as well
 def _go_path_mapping():
@@ -19,9 +19,8 @@ def _go_mapping_labels(srcs:list, root_dir:str):
     if root_dir:
         import_path = import_path.removeprefix(root_dir + "/")
         pkg_dir = pkg_dir.removeprefix(root_dir + "/")
-    #TODO(jpoole): update this to use the go plugin once it exists
-    if CONFIG.GO_IMPORT_PATH:
-        import_path = join_path(CONFIG.GO_IMPORT_PATH, import_path)
+    if CONFIG.GO.IMPORT_PATH:
+        import_path = join_path(CONFIG.GO.IMPORT_PATH, import_path)
 
     return [f'proto:go-map: {pkg_dir}/{src}={import_path}' for src in srcs
                if not src.startswith(':') and not src.startswith('/')]
@@ -31,8 +30,8 @@ def _import_path(root_dir):
     if root_dir:
         pkg = pkg.removeprefix(root_dir + "/")
 
-    if CONFIG.GO_IMPORT_PATH:
-        return join_path(CONFIG.GO_IMPORT_PATH, pkg)
+    if CONFIG.GO.IMPORT_PATH:
+        return join_path(CONFIG.GO.IMPORT_PATH, pkg)
     return pkg
 
 
