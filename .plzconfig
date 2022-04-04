@@ -1,8 +1,10 @@
-[Go]
+[Plugin "go"]
+Target = //plugins:go
 ImportPath = github.com/please-build/go-proto-rules
 GoTool = //third_party/go:toolchain|go
 
 [Plugin "proto"]
+Target = //plugins:proto
 ProtocTool = //third_party/proto:protoc
 LanguageDef = //build_defs:go
 
@@ -28,3 +30,7 @@ DefaultValue = //third_party/go:protobuf
 [PluginConfig "grpc_dep"]
 ConfigKey = GrpcDep
 DefaultValue = //third_party/go:grpc
+
+[FeatureFlags]
+ExcludeProtoRules = True
+ExcludeGoRules = True
