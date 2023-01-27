@@ -1,5 +1,5 @@
 [Please]
-Version = 16.20.0-beta.14
+Version = 16.27.1
 
 [Plugin "go"]
 Target = //plugins:go
