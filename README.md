@@ -20,7 +20,7 @@ plugin_repo(
 Then add the go-proto to the list of language definitions:
 ```ini
 [Plugin "proto"]
-LanguageDef = ///go-proto//build_defs:go
+LanguageDef = ///go_proto//build_defs:go
 ```
 
 You'll then need to add the [protobuf sdk](https://github.com/golang/protobuf), as well as the 
@@ -47,3 +47,10 @@ go_binary(
 ```
 
 See the [Proto](https://github.com/please-build/proto-rules) plugin for more information on these rules. 
+
+# Configuration
+This plugin can be configured via the plugins section as follows:
+```python
+[Plugin "go-proto"]
+SomeConfig = some-value
+```

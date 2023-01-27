@@ -1,3 +1,8 @@
+Version 0.2.0
+-------------
+    * Adding doc strings to generate docs
+    * Removed language arguments as we already know the language is go
+
 Version 0.1.0
 -------------
     * Initial commit
