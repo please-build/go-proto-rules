@@ -1,7 +1,7 @@
 subinclude("///proto//build_defs/sdk")
 
 proto_build_defs(
-    name = "go",
+    name = "go_proto",
     srcs = ["go.build_defs"],
     visibility = ["PUBLIC"],
     proto_languages = {

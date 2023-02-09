@@ -9,7 +9,7 @@ GoTool = //third_party/go:toolchain|go
 [Plugin "proto"]
 Target = //plugins:proto
 ProtocTool = //third_party/proto:protoc
-LanguageDef = //build_defs:go
+LanguageDef = //build_defs:go_proto
 
 [Plugin "go_proto"]
 GrpcPlugin = //third_party/go:protoc-gen-go-grpc
