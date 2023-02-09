@@ -20,7 +20,7 @@ plugin_repo(
 Then add the go-proto to the list of language definitions:
 ```ini
 [Plugin "proto"]
-LanguageDef = ///go_proto//build_defs:go
+LanguageDef = ///go_proto//build_defs:go-proto
 ```
 
 You'll then need to add the [protobuf sdk](https://github.com/golang/protobuf), as well as the 
