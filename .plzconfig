@@ -1,5 +1,5 @@
 [Please]
-Version = 16.27.1
+Version = 17.0.0-beta.10
 
 [Plugin "go"]
 Target = //plugins:go
@@ -21,19 +21,20 @@ Name = go_proto
 [PluginConfig "plugin"]
 ConfigKey = ProtoPlugin
 DefaultValue = grpc_go_plugin
+Help = The proto plugin i.e. google.golang.org/protobuf/cmd/protoc-gen-go
 
 [PluginConfig "grpc_plugin"]
 ConfigKey = GrpcPlugin
 DefaultValue = grpc_go_plugin
+Help = The gRPC proto plugin i.e. google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
 [PluginConfig "proto_dep"]
 ConfigKey = ProtoDep
 DefaultValue = //third_party/go:protobuf
+Help = The go_module or go_repo target that provides google.golang.org/protobuf
 
 [PluginConfig "grpc_dep"]
 ConfigKey = GrpcDep
 DefaultValue = //third_party/go:grpc
+Help = The go_module or go_repo target that provides google.golang.org/grpc
 
-[FeatureFlags]
-ExcludeProtoRules = True
-ExcludeGoRules = True
