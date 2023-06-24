@@ -1,7 +1,8 @@
 subinclude("///go//build_defs:go")
+
 go_toolchain(
     name = "toolchain",
-    version = "1.17",
+    version = "1.20.5",
 )
 
 go_module(
@@ -213,7 +214,7 @@ go_module(
     name = "sys",
     install = ["..."],
     module = "golang.org/x/sys",
-    version = "v0.0.0-20220315194320-039c03cc5b86",
+    version = "v0.9.0",
     visibility = ["PUBLIC"],
 )
 

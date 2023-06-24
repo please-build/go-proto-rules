@@ -1,5 +1,5 @@
 [Please]
-Version = 16.27.1
+Version = 17.1.0
 
 [Plugin "go"]
 Target = //plugins:go
@@ -33,7 +33,3 @@ DefaultValue = //third_party/go:protobuf
 [PluginConfig "grpc_dep"]
 ConfigKey = GrpcDep
 DefaultValue = //third_party/go:grpc
-
-[FeatureFlags]
-ExcludeProtoRules = True
-ExcludeGoRules = True
