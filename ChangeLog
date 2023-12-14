@@ -1,3 +1,7 @@
+Version 0.3.0
+-------------
+    * Add modinfo provides. Requires a recent version of go-rules (at least >= 1.8.0)
+
 Version 0.2.1
 -------------
     * Rename build defs file so `plz init plugin` works
