@@ -148,7 +148,7 @@ def go_grpc_language():
     return proto_language(
         language = "go",
         build_def = go_grpc_library,
-        additional_provides={"go_src": "go_srcs"},
+        additional_provides={"go_src": "go_srcs", "modinfo": "go_modinfo"},
     )
 
 def go_proto_language():
@@ -158,5 +158,5 @@ def go_proto_language():
     return proto_language(
         language = "go",
         build_def = go_proto_library,
-        additional_provides={"go_src": "go_srcs"},
+        additional_provides={"go_src": "go_srcs", "modinfo": "go_modinfo"},
     )
