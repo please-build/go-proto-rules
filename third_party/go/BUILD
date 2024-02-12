@@ -1,33 +1,36 @@
 subinclude("///go//build_defs:go")
+
 go_toolchain(
     name = "toolchain",
-    version = "1.17",
+    version = "1.22.0",
 )
 
-go_module(
+go_repo(
+    module = "github.com/davecgh/go-spew",
     name = "go-spew",
     install = ["spew"],
-    module = "github.com/davecgh/go-spew",
+    licences = ["ISC"],
     version = "v1.1.0",
-    visibility = ["PUBLIC"],
 )
 
-go_module(
+go_repo(
+    module = "github.com/pmezard/go-difflib",
     name = "go-difflib",
     install = ["difflib"],
-    module = "github.com/pmezard/go-difflib",
+    licences = ["BSD-3-Clause"],
     version = "v1.0.0",
-    visibility = ["PUBLIC"],
 )
 
-go_module(
-    name = "yaml.v3",
+go_repo(
     module = "gopkg.in/yaml.v3",
+    name = "yaml.v3",
+    install = ["."],
+    licences = ["MIT"],
     version = "v3.0.0-20200313102051-9f266ea9e77c",
-    visibility = ["PUBLIC"],
 )
 
-go_module(
+go_repo(
+    module = "github.com/stretchr/testify",
     name = "testify",
     install = [
         ".",
@@ -37,25 +40,20 @@ go_module(
         "require",
         "suite",
     ],
-    module = "github.com/stretchr/testify",
+    licences = ["MIT"],
     version = "v1.7.0",
-    visibility = ["PUBLIC"],
-    deps = [
-        ":go-difflib",
-        ":go-spew",
-        ":objx",
-        ":yaml.v3",
-    ],
 )
 
-go_module(
-    name = "objx",
+go_repo(
     module = "github.com/stretchr/objx",
+    name = "objx",
+    install = ["."],
+    licences = ["MIT"],
     version = "v0.1.0",
-    visibility = ["PUBLIC"],
 )
 
-go_module(
+go_repo(
+    module = "golang.org/x/text",
     name = "text",
     install = [
         "secure/bidirule",
@@ -63,14 +61,13 @@ go_module(
         "unicode/bidi",
         "unicode/norm",
     ],
-    module = "golang.org/x/text",
+    licences = ["BSD-3-Clause"],
     version = "v0.3.0",
-    visibility = ["PUBLIC"],
 )
 
-go_module(
+go_repo(
+    module = "github.com/golang/protobuf",
     name = "protobuf",
-    exported_deps = [":google.golang.org.protobuf"],
     install = [
         "proto",
         "ptypes",
@@ -78,12 +75,12 @@ go_module(
         "ptypes/duration",
         "ptypes/timestamp",
     ],
-    module = "github.com/golang/protobuf",
+    licences = ["BSD-3-Clause"],
     version = "v1.4.3",
-    visibility = ["PUBLIC"],
 )
 
-go_module(
+go_repo(
+    module = "google.golang.org/grpc",
     name = "grpc",
     install = [
         ".",
@@ -100,29 +97,6 @@ go_module(
         "encoding",
         "encoding/proto",
         "grpclog",
-        "internal",
-        "internal/backoff",
-        "internal/balancerload",
-        "internal/binarylog",
-        "internal/buffer",
-        "internal/channelz",
-        "internal/credentials",
-        "internal/envconfig",
-        "internal/grpclog",
-        "internal/grpcrand",
-        "internal/grpcsync",
-        "internal/grpcutil",
-        "internal/metadata",
-        "internal/resolver",
-        "internal/resolver/dns",
-        "internal/resolver/passthrough",
-        "internal/resolver/unix",
-        "internal/serviceconfig",
-        "internal/status",
-        "internal/syscall",
-        "internal/transport",
-        "internal/transport/networktype",
-        "internal/xds/env",
         "keepalive",
         "metadata",
         "peer",
@@ -132,33 +106,18 @@ go_module(
         "status",
         "tap",
     ],
-    module = "google.golang.org/grpc",
+    licences = ["Apache-2.0"],
     version = "v1.42.0",
-    visibility = ["PUBLIC"],
-    deps = [
-        ":genproto",
-        ":google.golang.org.protobuf",
-        ":net",
-        ":protobuf",
-        ":sys",
-    ],
 )
 
-go_mod_download(
-    name = "protobuf_dl",
+go_repo(
     module = "google.golang.org/protobuf",
-    version = "v1.27.1",
-)
-
-go_module(
     name = "google.golang.org.protobuf",
-    download = ":protobuf_dl",
     install = [
         "cmd/protoc-gen-go/internal_gengo",
         "compiler/protogen",
         "encoding/prototext",
         "encoding/protowire",
-        "internal/...",
         "proto",
         "reflect/protodesc",
         "reflect/protoreflect",
@@ -171,79 +130,54 @@ go_module(
         "types/known/timestamppb",
         "types/pluginpb",
     ],
-    module = "google.golang.org/protobuf",
+    licences = ["BSD-3-Clause"],
+    version = "v1.27.1",
 )
 
-go_module(
-    name = "protoc-gen-go-grpc",
-    binary = True,
+go_repo(
     module = "google.golang.org/grpc/cmd/protoc-gen-go-grpc",
+    name = "google.golang.org_grpc_cmd_protoc-gen-go-grpc",
+    licences = ["Apache-2.0"],
     version = "v1.1.0",
-    visibility = ["PUBLIC"],
-    deps = [":google.golang.org.protobuf"],
 )
 
-go_module(
-    name = "protoc-gen-go",
-    binary = True,
-    download = ":protobuf_dl",
-    install = ["cmd/protoc-gen-go"],
-    module = "google.golang.org/protobuf",
-    visibility = ["PUBLIC"],
-    deps = [":google.golang.org.protobuf"],
-)
-
-go_module(
+go_repo(
+    module = "golang.org/x/net",
     name = "net",
     install = [
         "http/httpguts",
         "http2",
         "http2/hpack",
         "idna",
-        "internal/timeseries",
         "trace",
     ],
-    module = "golang.org/x/net",
+    licences = ["BSD-3-Clause"],
     version = "v0.0.0-20200822124328-c89045814202",
-    visibility = ["PUBLIC"],
-    deps = [":text"],
 )
 
-go_module(
+go_repo(
+    module = "golang.org/x/sys",
     name = "sys",
     install = ["..."],
-    module = "golang.org/x/sys",
+    licences = ["BSD-3-Clause"],
     version = "v0.0.0-20220315194320-039c03cc5b86",
-    visibility = ["PUBLIC"],
 )
 
-go_module(
+go_repo(
+    module = "google.golang.org/genproto",
     name = "genproto",
     install = ["googleapis/rpc/status"],
-    module = "google.golang.org/genproto",
+    licences = ["Apache-2.0"],
     version = "v0.0.0-20200526211855-cb27e3aa2013",
-    visibility = ["PUBLIC"],
-    deps = [
-        ":google.golang.org.protobuf",
-        ":protobuf",
-    ],
 )
 
-go_module(
+go_repo(
+    module = "github.com/google/go-cmp",
     name = "go-cmp",
     install = [
         "cmp",
         "cmp/cmpopts",
-        "cmp/internal/diff",
-        "cmp/internal/flags",
-        "cmp/internal/function",
-        "cmp/internal/testprotos",
-        "cmp/internal/teststructs",
-        "cmp/internal/teststructs/foo1",
-        "cmp/internal/teststructs/foo2",
-        "cmp/internal/value",
     ],
-    module = "github.com/google/go-cmp",
+    licences = ["BSD-3-Clause"],
     version = "v0.5.6",
-    visibility = ["PUBLIC"],
 )

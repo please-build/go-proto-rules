@@ -12,8 +12,9 @@ ProtocTool = //third_party/proto:protoc
 LanguageDef = //build_defs:go_proto
 
 [Plugin "go_proto"]
-GrpcPlugin = //third_party/go:protoc-gen-go-grpc
-ProtoPlugin = //third_party/go:protoc-gen-go
+GrpcPlugin = ///third_party/go/google.golang.org_grpc_cmd_protoc-gen-go-grpc//:protoc-gen-go-grpc
+ProtoPlugin = ///third_party/go/google.golang.org_protobuf//cmd/protoc-gen-go
+ProtoDep = //third_party/go:google.golang.org.protobuf
 
 [PluginDefinition]
 Name = go_proto
