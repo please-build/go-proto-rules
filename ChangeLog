@@ -1,3 +1,7 @@
+Version 0.4.0
+-------------
+    * Update go plugin to something recent.
+
 Version 0.3.0
 -------------
     * Add modinfo provides. Requires a recent version of go-rules (at least >= 1.8.0)
