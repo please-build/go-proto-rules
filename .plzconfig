@@ -1,5 +1,5 @@
 [Please]
-Version = 16.27.1
+Version = 17.8.7
 
 [Plugin "go"]
 Target = //plugins:go
@@ -10,6 +10,12 @@ GoTool = //third_party/go:toolchain|go
 Target = //plugins:proto
 ProtocTool = //third_party/proto:protoc
 LanguageDef = //build_defs:go_proto
+
+[parse]
+preloadsubincludes = ///python//build_defs:python
+
+[Plugin "python"]
+Target = //plugins:python
 
 [Plugin "go_proto"]
 GrpcPlugin = //third_party/go:protoc-gen-go-grpc
@@ -33,7 +39,3 @@ DefaultValue = //third_party/go:protobuf
 [PluginConfig "grpc_dep"]
 ConfigKey = GrpcDep
 DefaultValue = //third_party/go:grpc
-
-[FeatureFlags]
-ExcludeProtoRules = True
-ExcludeGoRules = True
